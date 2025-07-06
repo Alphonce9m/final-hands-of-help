@@ -1,0 +1,66 @@
+import React from 'react';
+import { Heart } from 'lucide-react';
+
+const Donate: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <div className="py-32 bg-black text-center">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Support Our Mission</h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            Your donation creates lasting change in the Kasabuni community and empowers young leaders
+          </p>
+        </div>
+      </div>
+
+      {/* Donation CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="border border-white/10 p-8 md:p-12">
+            <h2 className="text-4xl font-bold mb-6">Make a Donation</h2>
+            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+              Support our initiatives through M-Changa, a secure fundraising platform
+            </p>
+            
+            {/* M-Changa Donation Button */}
+            <div className="mt-10">
+              <a 
+                href="https://secure.changa.co.ke/myweb/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10 transition-colors"
+              >
+                <Heart className="w-5 h-5 mr-2" />
+                Donate via M-Changa
+              </a>
+              <p className="mt-4 text-sm text-white/60">
+                Secure payments via M-Pesa, Card, or Bank Transfer
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Information */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6">Other Ways to Support</h2>
+          <div className="mt-8 space-y-6 text-white/70">
+            <p>
+              For alternative donation methods or in-kind donations, please contact us directly.
+            </p>
+            <a 
+              href="/contact" 
+              className="inline-block mt-6 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Donate;
