@@ -20,8 +20,8 @@ export default function Card({
   noPadding = false
 }: CardProps) {
   return (
-    <div className={`bg-white rounded-xl shadow-sm overflow-hidden transition-all ${
-      hover ? 'hover:shadow-md hover:-translate-y-0.5' : ''
+    <div className={`bg-gray-900 rounded-xl shadow-sm overflow-hidden transition-all border border-gray-800 ${
+      hover ? 'hover:shadow-lg hover:-translate-y-0.5 hover:border-gray-700' : ''
     } ${className}`}>
       {image && (
         <div className="relative h-48 overflow-hidden">
@@ -34,10 +34,10 @@ export default function Card({
       )}
       <div className={noPadding ? '' : 'p-6'}>
         {title && (
-          <h3 className="text-xl font-bold mb-3 text-gray-900">{title}</h3>
+          <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
         )}
         {description && (
-          <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
+          <p className="text-gray-300 mb-4 leading-relaxed">{description}</p>
         )}
         {children}
       </div>
