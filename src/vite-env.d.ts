@@ -25,29 +25,37 @@ declare module '*.jpg' {
 }
 
 declare module '*.jpeg' {
-  const content: string;
-  export default content;
-}
-
-declare module '*.gif' {
-  const content: string;
-  export default content;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
-
-declare module '*.svg' {
-  import * as React from 'react';
-  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   const src: string;
   export default src;
 }
 
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.gif';
-declare module '*.bmp';
-declare module '*.tiff';
+declare module '*.gif' {
+  const src: string;
+  export default src;
+}
+
+declare module '*.bmp' {
+  const src: string;
+  export default src;
+}
+
+declare module '*.tiff' {
+  const src: string;
+  export default src;
+}
+
+declare module '*.webp' {
+  const src: string;
+  export default src;
+}
+
+// For CSS modules
+declare module '*.module.css' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.module.scss' {
+  const classes: { [key: string]: string };
+  export default classes;
+}

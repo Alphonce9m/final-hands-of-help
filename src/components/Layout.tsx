@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaLinkedin, FaInstagram, FaTwitter, FaFacebookF, FaArrowUp } from 'react-icons/fa';
 
+// Import images
+import logoImage from '../assets/images/logo.jpg';
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -69,7 +72,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative">
                 <img 
-                  src="/gallery/logo.jpg" 
+                  src={logoImage} 
                   alt="Hands of Help Logo" 
                   className="h-12 w-12 rounded-full object-cover border-2 border-white/10 group-hover:border-blue-500 transition-all duration-300 transform group-hover:scale-105"
                 />

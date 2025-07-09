@@ -32,7 +32,16 @@ export default defineConfig({
           react: ['react', 'react-dom', 'react-router-dom'],
           vendor: ['lucide-react', 'framer-motion'],
         },
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (ext === 'css') {
+            return `assets/css/[name]-[hash][extname]`;
+          }
+          return `assets/images/[name]-[hash][extname]`;
+        },
       },
     },
   },
+  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.gif'],
 });

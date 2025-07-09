@@ -125,7 +125,7 @@ const Donate: React.FC = () => {
             <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
               Support our initiatives through M-Changa, a secure fundraising platform
             </p>
-            
+
             {/* M-Changa Donation Button */}
             <div className="mt-10">
               <div className="space-y-4">
@@ -143,7 +143,7 @@ const Donate: React.FC = () => {
                 <p className="text-sm text-center text-white/60">
                   Secure payments via M-Pesa, Card, or Bank Transfer
                 </p>
-                
+
                 <div className="pt-4 mt-4 border-t border-white/10">
                   <h3 className="text-lg font-medium text-white">Other Ways to Support</h3>
                   <div className="grid gap-4 mt-4 sm:grid-cols-2">
@@ -179,7 +179,7 @@ const Donate: React.FC = () => {
               See exactly how your donation creates impact in our specific programs
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {impactAreas.map((area: ImpactArea, index: number) => (
               <div key={index} className="border border-white/10 p-6 h-full bg-gray-900/50 hover:bg-gray-900/70 transition-colors duration-300 rounded-lg">
@@ -232,7 +232,7 @@ const Donate: React.FC = () => {
               See how your donation makes a difference in the lives of children and youth in Kasabuni
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {successStories.map((story, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md h-full">
@@ -260,7 +260,7 @@ const Donate: React.FC = () => {
               There are many ways to make a difference beyond financial donations
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {supportOptions.map((option, index) => (
               <div key={index} className="text-center p-6 bg-blue-800 rounded-lg h-full">
@@ -282,7 +282,7 @@ const Donate: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">Questions About Donating?</h2>
           <p className="text-xl text-gray-600 mb-8">
-            We're here to help you understand how your donation will make a difference. 
+            We're here to help you understand how your donation will make a difference.
             Contact us for more information about our programs and impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
