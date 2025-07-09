@@ -4,6 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './', // This is important for Vercel
   plugins: [react()],
   resolve: {
     alias: {
@@ -15,14 +16,26 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     open: true,
-    proxy: {
-      // Add any API proxies if needed
-    }
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
   build: {
     target: 'esnext',
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          vendor: ['lucide-react', 'framer-motion'],
+        },
+      },
+    },
+  },
+  preview: {
+    port: 4173,
+    strictPort: true,
   },
 });
