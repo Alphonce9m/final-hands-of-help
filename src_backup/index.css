@@ -1,0 +1,435 @@
+/* Custom properties and imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary: 79 70 229;    /* Indigo-600 */
+    --primary-light: 99 102 241; /* Indigo-500 */
+    --primary-dark: 67 56 202;  /* Indigo-700 */
+  }
+  
+  /* Custom border color with opacity */
+  .border-primary-light-50 {
+    --tw-border-opacity: 0.5;
+    border-color: rgb(var(--primary-light) / var(--tw-border-opacity));
+  }
+  
+  .hover\:border-primary-light-50:hover {
+    --tw-border-opacity: 0.5;
+    border-color: rgb(var(--primary-light) / var(--tw-border-opacity));
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Animation Delays */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Base styles with black background */
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary: #4f46e5;    /* Indigo-600 */
+    --primary-light: #6366f1; /* Indigo-500 */
+    --primary-dark: #4338ca;  /* Indigo-700 */
+    
+    /* Secondary Colors */
+    --secondary: #ec4899;  /* Pink-500 */
+    --accent: #06b6d4;    /* Cyan-500 */
+    
+    /* Text Colors */
+    --text-primary: #ffffff; /* Pure white for best contrast */
+    --text-secondary: #cbd5e1; /* Lighter gray for secondary text */
+    
+    /* Background Colors */
+    --bg-dark: #0f172a;   /* Slate-900 */
+    --bg-darker: #020617; /* Slate-950 */
+    --bg-card: rgba(255, 255, 255, 0.03); /* Semi-transparent white for cards */
+    
+    /* Accent Backgrounds */
+    --bg-accent: #1e40af; /* Blue-800 */
+    --bg-accent-light: #3b82f6; /* Blue-500 */
+  }
+
+  html, body, #root {
+    @apply min-h-screen bg-[var(--bg-darker)] text-[var(--text-primary)];
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-[var(--bg-darker)] to-[var(--bg-dark)] bg-fixed;
+    line-height: 1.6;
+  }
+  
+  /* Standardized Background Classes */
+  .bg-primary { background-color: var(--primary); }
+  .bg-secondary { background-color: var(--secondary); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-dark { background-color: var(--bg-dark); }
+  .bg-darker { background-color: var(--bg-darker); }
+  .bg-card { background-color: var(--bg-card); }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight tracking-tight;
+    color: var(--text-primary);
+  }
+  
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  
+  /* Base text styles with explicit color */
+  body {
+    color: var(--text-primary);
+  }
+  
+  p, li, span, div, a, button, input, textarea, select, label {
+    color: inherit;
+  }
+  
+  /* Ensure form elements have proper contrast */
+  input, textarea, select {
+    color: #1a1a1a; /* Dark text for better contrast on light backgrounds */
+    background-color: #ffffff;
+  }
+  
+  /* Links */
+  a {
+    @apply transition-colors duration-200 hover:text-[var(--primary-light)];
+  }
+  
+  /* Buttons */
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  /* Ensure all buttons have good contrast */
+  button:not(.btn-primary) {
+    color: var(--text-primary);
+  }
+  
+  /* Cards */
+  .card {
+    @apply bg-[var(--bg-card)] backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-primary-light-50 transition-all duration-300 text-white;
+  }
+  
+  /* Standardized Section Styling */
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-[var(--text-secondary)] max-w-3xl mx-auto text-center mb-12;
+  }
+  
+  .divider {
+    @apply w-20 h-0.5 bg-[var(--primary)] mx-auto my-6;
+  }
+  
+  /* Gradients */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)];
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)];
+  }
+  
+  /* Override any white backgrounds in components */
+  .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-slate-50, .bg-slate-100, .bg-slate-200 {
+    @apply bg-[var(--bg-dark)];
+  }
+  
+  /* Update borders for better visibility */
+  .border-gray-200, .border-gray-300, .border-slate-200, .border-slate-300 {
+    @apply border-white/10;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Glass morphism effect for dark theme */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Text styles */
+.gradient-text,
+.gradient-text-orange {
+  color: #ffffff;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern button styles */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+/* Card hover effects */
+.card-modern {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(251, 191, 36, 0.3);
+}
+
+/* Floating elements */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Background patterns */
+.pattern-dots {
+  background-color: #1a1a1a;
+}
+
+.pattern-grid {
+  background-color: #1a1a1a;
+}
+
+/* Glowing effects */
+.glow-blue {
+  box-shadow: 0 0 15px rgba(30, 64, 175, 0.3);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.glow-white {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Simple orb styles */
+.orb {
+  display: none; /* Orbs removed */
+}
+
+/* Section backgrounds for dark theme */
+.section-gradient-1 {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+}
+
+.section-gradient-2 {
+  background: linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 50%, #3a3a2a 100%);
+}
+
+.section-gradient-3 {
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 50%, #2a2a3a 100%);
+}
+
+.section-gradient-4 {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+}
+
+/* Text shadows for better readability on dark backgrounds */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-light {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Backdrop blur variations */
+.backdrop-blur-strong {
+  backdrop-filter: blur(20px);
+}
+
+.backdrop-blur-medium {
+  backdrop-filter: blur(15px);
+}
+
+.backdrop-blur-light {
+  backdrop-filter: blur(5px);
+}
+
+/* Dark theme card styles */
+.card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.card-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation styles for dark theme */
+.nav-dark {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer styles for dark theme */
+.footer-dark {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+}
