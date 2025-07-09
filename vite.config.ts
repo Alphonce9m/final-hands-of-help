@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './', // This is important for Vercel
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -17,13 +17,14 @@ export default defineConfig({
     strictPort: true,
     open: true,
   },
-  optimizeDeps: {
-    exclude: ['lucide-react'],
+  preview: {
+    port: 4173,
+    strictPort: true,
   },
   build: {
-    target: 'esnext',
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
     sourcemap: true,
     rollupOptions: {
       output: {
@@ -33,9 +34,5 @@ export default defineConfig({
         },
       },
     },
-  },
-  preview: {
-    port: 4173,
-    strictPort: true,
   },
 });

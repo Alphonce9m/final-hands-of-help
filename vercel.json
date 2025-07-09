@@ -5,7 +5,9 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "installCommand": "npm install",
+        "buildCommand": "npm run vercel-build"
       }
     }
   ],
@@ -17,16 +19,17 @@
       }
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "src": "/_next/static/(.*)",
+      "dest": "/_next/static/$1"
     },
     {
       "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
+      "dest": "/index.html"
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
 }
